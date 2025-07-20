@@ -1,6 +1,6 @@
 package com.example.aihelper.ai;
 
-import dev.langchain4j.community.model.zhipu.chat.UserMessage;
+import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.service.SystemMessage;
 import java.util.List;
 

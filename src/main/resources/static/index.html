@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI编程助手 - 多模态对话</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 会话状态指示器 -->
+    <div id="sessionStatus" class="session-status connected">
+        <i class="fas fa-circle"></i> 会话已连接
+    </div>
+
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-robot"></i> AI编程助手</h1>
+                <p>支持文本和图片的多模态对话，助力您的编程学习与求职</p>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 功能选择区域 -->
+            <div class="function-tabs">
+                <button class="tab-btn active" data-tab="chat">
+                    <i class="fas fa-comments"></i> 智能对话
+                </button>
+                <button class="tab-btn" data-tab="multimodal">
+                    <i class="fas fa-image"></i> 多模态对话
+                </button>
+                <button class="tab-btn" data-tab="report">
+                    <i class="fas fa-chart-line"></i> 学习报告
+                </button>
+            </div>
+
+            <!-- 对话区域 -->
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>您好！我是AI编程助手，可以帮助您：</p>
+                            <ul>
+                                <li>📚 规划清晰的编程学习路线</li>
+                                <li>🚀 提供项目学习建议</li>
+                                <li>💼 给出程序员求职全流程指南</li>
+                                <li>🎯 分享高频面试题和面试技巧</li>
+                            </ul>
+                            <p>您可以发送文字消息，也可以上传图片进行多模态对话！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 输入区域 -->
+                <div class="input-container">
+                    <!-- 文本对话输入 -->
+                    <div class="input-section" id="textInput">
+                        <div class="input-wrapper">
+                            <textarea id="messageInput" placeholder="请输入您的问题..." rows="3"></textarea>
+                            <button class="send-btn" id="sendTextBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 多模态对话输入 -->
+                    <div class="input-section hidden" id="multimodalInput">
+                        <div class="image-upload-area" id="imageUploadArea">
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>点击或拖拽上传图片</p>
+                                <small>支持 JPG, PNG, GIF 格式</small>
+                            </div>
+                            <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
+                        </div>
+                        <div class="image-preview" id="imagePreview"></div>
+                        <div class="input-wrapper">
+                            <textarea id="multimodalMessageInput" placeholder="请描述您想了解的内容或提出问题..." rows="2"></textarea>
+                            <button class="send-btn" id="sendMultimodalBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 学习报告输入 -->
+                    <div class="input-section hidden" id="reportInput">
+                        <div class="input-wrapper">
+                            <textarea id="reportMessageInput" placeholder="请介绍您的基本情况，如：姓名、工作经验、技术栈等..." rows="3"></textarea>
+                            <button class="send-btn" id="sendReportBtn">
+                                <i class="fas fa-chart-line"></i> 生成报告
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 加载指示器 -->
+        <div class="loading-overlay hidden" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>AI正在思考中...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
