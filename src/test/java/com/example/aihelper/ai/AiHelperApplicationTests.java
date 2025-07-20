@@ -18,8 +18,8 @@ class AiHelperApplicationTests {
 
     @Test
     void chatTest() {
-        String response = aiCodeService.chat("你好,你是什么模型");
-        System.out.println("AI Response: " + response);
+        AiCodeService.Report report = aiCodeService.chatForReport("你好,我是Alan，从事Java工作两年。请帮我规划学习路线");
+        System.out.println("AI Response: " + report);
     }
 
     @Test

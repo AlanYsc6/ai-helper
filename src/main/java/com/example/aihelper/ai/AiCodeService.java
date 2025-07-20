@@ -2,9 +2,9 @@ package com.example.aihelper.ai;
 
 import dev.langchain4j.community.model.zhipu.chat.UserMessage;
 import dev.langchain4j.service.SystemMessage;
-import dev.langchain4j.service.spring.AiService;
+import java.util.List;
 
-@AiService
+//@AiService
 public interface AiCodeService {
 
     /**
@@ -15,6 +15,14 @@ public interface AiCodeService {
      */
     @SystemMessage(fromResource = "system-prompt.txt")
     String chat(String message);
+
+    @SystemMessage(fromResource = "system-prompt.txt")
+    Report chatForReport(String message);
+
+    // 学习报告
+    record Report(String name, List<String> suggestionList) {
+
+    }
 
     /**
      * 与AI模型进行多模态对话
